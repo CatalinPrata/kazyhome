@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
  */
 public class PersistenceManager {
 
+    private static final String ACTIVE_IP = "active_ip";
     private SharedPreferences appStateSharedPreferences;
 
     public PersistenceManager(Context context) {
@@ -15,10 +16,10 @@ public class PersistenceManager {
     }
 
     public void saveIP(String ip) {
-        appStateSharedPreferences.edit().putString("active_ip", ip).apply();
+        appStateSharedPreferences.edit().putString(ACTIVE_IP, ip).apply();
     }
 
     public String getIP(String defaultIp) {
-        return appStateSharedPreferences.getString("active_ip", defaultIp);
+        return appStateSharedPreferences.getString(ACTIVE_IP, defaultIp);
     }
 }
